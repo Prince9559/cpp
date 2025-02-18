@@ -1,5 +1,5 @@
 #include<iostream>
-class overloading
+class Overloading
 {
 public: void add(int a,int b)
 {
@@ -21,7 +21,7 @@ std::cout<<sum;
 };
 int main()
 {
-overloading ol;
+Overloading ol;
 ol.add();
 ol.add(1);
 ol.add(1,2);

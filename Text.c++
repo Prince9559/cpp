@@ -1,19 +1,32 @@
 #include<iostream>
-class Direct
+class Overloading
 {
-public: void New()
+public:void add(int a,int b)
 {
-std::cout<<"How are you\n";
+int sum=a+b;
+std::cout<<sum<<"\n";
 }
+public:void add(float a,float b)
+{
+
+float sum=a+b;
+std::cout<<sum<<"\n\n";
+} 
 };
 int main()
 {
-Direct d1;
-d1.New();
-Direct *d2=new Direct();
-d2->New();
-(*d2).New();
-//d1==*d2 objects
-//d2=&d1 pointers
+float a,b;
+
+std::cout<<"Enter the A values :";
+std::cin>>a;
+
+std::cout<<"Enter the B Values :";
+std::cin>>b;
+
+Overloading ol;
+ol.add(a,b);
+//ol.add((float)a,(float)b);
+
 return 0;
 }
+

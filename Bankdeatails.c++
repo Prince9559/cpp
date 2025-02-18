@@ -17,6 +17,7 @@ class Bank
         std::cout << "Enter Balance :";
         std::cin >> balance;
     }
+    
 
     public:
     Bank(char c[50], char a[5], int b) // 3 parameters constructo
@@ -58,20 +59,19 @@ class Bank
 int main()
 {
 
-    Bank b("Bhide", "10", 1000);
-//    Bank b0;
-//    b0.display();
-      b.display();
-      b.deposit();
-      b.display();
-
+//    Bank b("Bhide", "10", 1000);
+    Bank b0;
+    b0.display();
 //      b.display();
-      b.withdrawal();
-      b.display();
-//    Bank *b1 = new Bank();
+//      b.deposit();
+//      b.display();
+
+//      b.withdrawal();
+//      b.display();
+    Bank *b1 = new Bank();
 //
 //    b1->display();
-//    b1 = new Bank("Jetha", "100", 120);
-//    b1->display();
+    b1 = new Bank("Jetha", "100", 120);
+    b1->display();
       return 0;
 }   
