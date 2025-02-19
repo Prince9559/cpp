@@ -1,32 +1,57 @@
-#include<iostream>
-class Overloading
+ // Online C++ compiler to run C++ program online
+#include <iostream>
+class SavingAccount
 {
-public:void add(int a,int b)
+int balance=0;
+public:void deposit()
 {
-int sum=a+b;
-std::cout<<sum<<"\n";
+    int amount;
+    std::cout<<"Enter the Balance :";
+    std::cin>>amount;
+    if(amount>=1)
+    balance=balance+amount;
+    else
+    std::cout<<"Not Deposit";
 }
-public:void add(float a,float b)
+public:void deposit(int amount)
 {
-
-float sum=a+b;
-std::cout<<sum<<"\n\n";
-} 
+    
+ 
+ 
+    if(amount>=1)
+    balance=balance+amount;
+    else
+    std::cout<<"Not Deposit";
+}
+public:void display()
+{
+    std::cout<<"\nBalance"<<balance;
+}
 };
-int main()
+class CurrentAccount:public SavingAccount
 {
-float a,b;
+    public:CurrentAccount():SavingAccount()
+    {
+        std::cout<<"Customer\n";
+    }
+    public:void deposit( int amount)
+    {
+       
+     
+        if(amount>=5)
+        {
+      SavingAccount::deposit(amount-5);
+        }
+        else
+        std::cout<<"Not Deposit";
+    }
+};
 
-std::cout<<"Enter the A values :";
-std::cin>>a;
-
-std::cout<<"Enter the B Values :";
-std::cin>>b;
-
-Overloading ol;
-ol.add(a,b);
-//ol.add((float)a,(float)b);
-
-return 0;
-}
-
+int main() {
+    
+    CurrentAccount c0;
+    c0.display();
+    c0.deposit(20);
+    c0.display();
+    return 0;
+} 
