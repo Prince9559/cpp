@@ -86,7 +86,7 @@ if(amount>=5)
 SavingAccount::deposit(amount-5);
 }
 else
-std::cout<"Amount must be >5";
+std::cout<<"Amount must be >5";
 }
 /*************************************** Current Ka withrawal **************************************/
 public:void withrawal(int amount)
