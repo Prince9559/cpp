@@ -1,61 +1,113 @@
 #include<iostream>
-/******************************************* A class **********************************************/
-class A
+#include<string.h>
+class SavingAccount
 {
-
-public:void publicf1()
+char name[50],account[50];
+int balance;
+public:SavingAccount(char n[50],char a[50],int b)
 {
-std::cout<"Public F1 class in A";
+strcpy(name,n);
+strcpy(account,a);
+ balance=b;
+}
+public:void deposit()
+{
+int amount;
+std::cout<<"\nEnter the Balance Deposit :";
+std::cin>>amount;
+if(amount>=1)
+balance=balance+amount;
+else
+std::cout<<"Not balance Deposit\n";
 }
 
-private:void privatef2()
+public:void deposit(int amount)
 {
-std::cout<<"Private F1 class in A";
+if(amount>=1)
+balance=balance+amount;
+else
+std::cout<<"Not Deposit Balance";
 }
 
-protected:void protectedf3()
+public:void withrawal()
 {
-std::cout<<"Protected F1 class in A";
+int amount;
+std::cout<<"\nEnter the Withrawal Balance :";
+std::cin>>amount;
+if(amount>=1)
+balance=balance-amount-5;
+else
+std::cout<<"Not Withrawal Balance\n";
 }
-};
-/************************************* B Clas *****************************************************/
-class B:private A
+
+public:void withrawal(int amount)
 {
+if(amount>=1)
+balance=balance-amount;
+else
+std::cout<<"Not Balance Withrawal";
+}
+
+public:SavingAccount()
+{
+std::cout<<"Enter the Name:";
+std::cin>>name;
+
+std::cout<<"Enter the Account Name :";
+std::cin>>account;
+
+std::cout<<"Enter the Balance :";
+std::cin>>balance;
+}
 public:void display()
 {
-//A::publicf1();
-////A::privatef2();
-//A::protectedf3();
+std::cout<<"Name ="<<name<<", Address ="<<account<<", Balance ="<<balance;
 }
 };
-/******************************************* C Class **********************************************/
-class C: public B
+
+
+class CurrentAccount:public SavingAccount
 {
-public:void display()
+public:CurrentAccount():SavingAccount()
 {
-//B::publicf1();
-//B::privatef2();
-//B::protectedf3();
+std::cout<<"Customer :\n";
+}
+
+public:void deposit(int amount)
+{
+std::cout<<"\nEnter the Current balance :";
+std::cin>>amount;
+if(amount>=5)
+SavingAccount::deposit(amount-5);
+else
+std::cout<<"\nNot Deposit Balance\n";
+}
+
+public:void withrawl(int amount)
+{
+std::cout<<"Enter the Current balance:";
+std::cin>>amount;
+if(amount>=5)
+SavingAccount::withrawal(amount-5);
+else
+std::cout<<"Not withrawal";
 }
 };
-/********************************** Main Function ************************************************/
 int main()
 {
+//SavingAccount* s1=new SavingAccount("Prince","9493023030",1000);
+//s1->display();
+//s1->deposit();
+//s1->display();
+//s1->withrawal();
+//s1->display();
 
-//A a;
-//a.publicf1();
-//a.privatef2();
-//a.protectedf3();
-
-//B b;
-//b.publicf1();
-//b.privatef2();
-//b.protectedf3();
-
-C c;
-c.publicf1();
-c.privatef2();
-c.protectedf3();
+CurrentAccount c;
+c.display();
+c.deposit(2);
+c.display();
+c.withrawal();
+c.display();
 
 return 0;
 }

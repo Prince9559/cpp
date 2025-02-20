@@ -1,5 +1,6 @@
 #include <iostream>
-using namespace std;
+//#include<string.h>
+//using namespace std;
 
 class Demo {
 public:
@@ -19,9 +20,9 @@ public:
     }
 
     void display() {
-        cout << "Public: " << publicVar;
-        cout << "Private: " << privateVar;
-        cout << "Protected: " << protectedVar;
+        std::cout << "Public: " << publicVar;
+        std::cout << "\nPrivate: " << privateVar;
+        std::cout << "\nProtected: " << protectedVar;
     }
 };
 
