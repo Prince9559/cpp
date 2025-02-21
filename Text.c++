@@ -1,24 +1,36 @@
 #include<iostream>
 #include<string.h>
-class SavingAccount
+class Savingaccount
 {
 char name[50],account[50];
 int balance;
-public:SavingAccount(char n[50],char a[50],int b)
+public:Savingaccount(char n[50],char a[50],int b)
 {
 strcpy(name,n);
 strcpy(account,a);
- balance=b;
+balance=b;
+}
+public:Savingaccount()
+{
+std::cout<<"Enter the Customer Name :";
+std::cin>>name;
+
+std::cout<<"Enter the Customer Account_No :";
+std::cin>>account;
+
+std::cout<<"Enter the Customer Balance :";
+std::cin>>balance;
+
 }
 public:void deposit()
 {
 int amount;
-std::cout<<"\nEnter the Balance Deposit :";
+std::cout<<"Enter the Balance Deposit :\n";
 std::cin>>amount;
 if(amount>=1)
 balance=balance+amount;
 else
-std::cout<<"Not balance Deposit\n";
+std::cout<<"Not Deposit Balance\n";
 }
 
 public:void deposit(int amount)
@@ -32,10 +44,10 @@ std::cout<<"Not Deposit Balance";
 public:void withrawal()
 {
 int amount;
-std::cout<<"\nEnter the Withrawal Balance :";
+std::cout<<"\nEnter the Balance Withrawal :";
 std::cin>>amount;
 if(amount>=1)
-balance=balance-amount-5;
+balance=balance-amount;
 else
 std::cout<<"Not Withrawal Balance\n";
 }
@@ -43,22 +55,11 @@ std::cout<<"Not Withrawal Balance\n";
 public:void withrawal(int amount)
 {
 if(amount>=1)
-balance=balance-amount;
+balance=balance-amount-10;
 else
-std::cout<<"Not Balance Withrawal";
+std::cout<<"Not withrawal Balance";
 }
 
-public:SavingAccount()
-{
-std::cout<<"Enter the Name:";
-std::cin>>name;
-
-std::cout<<"Enter the Account Name :";
-std::cin>>account;
-
-std::cout<<"Enter the Balance :";
-std::cin>>balance;
-}
 public:void display()
 {
 std::cout<<"Name ="<<name<<", Address ="<<account<<", Balance ="<<balance;
@@ -66,49 +67,43 @@ std::cout<<"Name ="<<name<<", Address ="<<account<<", Balance ="<<balance;
 };
 
 
-class CurrentAccount:public SavingAccount
+class Currentaccount:public Savingaccount
 {
-public:CurrentAccount():SavingAccount()
+public:Currentaccount():Savingaccount()
 {
-std::cout<<"Customer :\n";
+std::cout<<"Customer Is The Best :\n";
 }
 
 public:void deposit(int amount)
 {
-std::cout<<"\nEnter the Current balance :";
+std::cout<<"\nEnter the Deposit Balance :";
 std::cin>>amount;
 if(amount>=5)
-SavingAccount::deposit(amount-5);
+Savingaccount::deposit(amount-5);
 else
-std::cout<<"\nNot Deposit Balance\n";
+std::cout<<"Not Deposit Balance";
 }
 
-public:void withrawl(int amount)
+public:void withrawal(int amount)
 {
-std::cout<<"Enter the Current balance:";
+std::cout<<"\nEnter the balance Withrawal :";
 std::cin>>amount;
 if(amount>=5)
-SavingAccount::withrawal(amount-5);
+Savingaccount::withrawal(amount-5);
 else
-std::cout<<"Not withrawal";
+std::cout<<"Not withrawal Balance";
 }
 };
 int main()
 {
-//SavingAccount* s1=new SavingAccount("Prince","9493023030",1000);
+//Savingaccount* s1=new Savingaccount("Prince","9559838383",1000);
 //s1->display();
-//s1->deposit();
-//s1->display();
-//s1->withrawal();
-//s1->display();
-
-CurrentAccount c;
-c.display();
-c.deposit(2);
-c.display();
-c.withrawal();
-c.display();
-
+Currentaccount c0;
+c0.display();
+c0.deposit(1);
+c0.display();
+c0.withrawal(1);
+c0.display(); 
 return 0;
 }
 
