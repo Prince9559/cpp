@@ -1,4 +1,4 @@
- #include <iostream>
+#include <iostream>
 using namespace std;
 
 class Currency 
@@ -9,7 +9,7 @@ public:Currency(int r = 0, int p = 0)
     total=r*100+p;
     
 }
-    friend ostream& operator<<(ostream& out, const Currency& c) 
+    friend ostream& operator<<(ostream& out, Currency& c) 
     {
      int r=c.total/100;
      int p=c.total % 100;
