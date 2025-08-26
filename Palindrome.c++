@@ -2,6 +2,7 @@
 int main()
 {
 	int r,c,n,sum=0;
+	
 	std::cout<<"Enter value of Number :";
 	std::cin>>n;
 	c=n;
